@@ -126,8 +126,16 @@ public class  Main{
                 String isxStroka = str.nextLine();
                 new ProverkaDannyh(isxStroka);
             } catch (IncorrectInfoException ex1) {
+                ex1.printStackTrace();
+                // трассировочный стек не успевал вывестись до повторного приглашения ввести данные и иногда выводился после него
+                try {
+                    Thread.sleep(2_000);
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }
                 isException = true;
-                System.out.println(ex1.getMessage());
+                //System.out.println(ex1.getMessage());
+               // ex1.printStackTrace();
             } catch (Exception ex2) {
                 isException = true;
                 System.out.println("Ошибка формата, до проверки из задания дело не дошло, введите правильно ");

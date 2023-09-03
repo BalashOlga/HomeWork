@@ -19,7 +19,7 @@ public class ProverkaDannyh  {
             }
         }
 
-        if (Pattern.compile("[\\d,*%/+:]\\\\*").matcher(pars).find() || dlina >200 ) {
+        if (Pattern.compile("[\\d,*%/+:]\\\\*").matcher(pars).find() || dlina >200 || dlina == 0) {
                 throw new IncorrectInfoException("Неверен формат ФИО  ", pars.toString() );
         } else if  (age > 100 || age < 0) {
             throw new IncorrectInfoException("Веден неверный возраст ", age);
